@@ -110,7 +110,7 @@ st.markdown(hide_st_style, unsafe_allow_html=True)
 
 footer="""<style>
 a:link , a:visited{
-color: blue;
+color: #00aadd;
 background-color: transparent;
 }
 
