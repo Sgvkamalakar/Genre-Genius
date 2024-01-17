@@ -63,8 +63,8 @@ def generate(prompt,ip,lang):
         model = genai.GenerativeModel('gemini-pro')
         if ip.strip()!='':
             response = model.generate_content(prompt)
-            st.sucess("Genre Genius nailed it 🎉")
-            st.sucess(f"Your {req_type} ready !😄✨")
+            st.success("Genre Genius nailed it 🎉")
+            st.success(f"Your {req_type} ready !😄✨")
             st.write(response.text)
     
         else:
