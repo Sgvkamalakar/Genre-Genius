@@ -1,8 +1,6 @@
 import streamlit as st
 import google.generativeai as genai
 from dotenv import load_dotenv
-import googletrans
-from googletrans import Translator
 import os
 load_dotenv()
 
@@ -59,12 +57,6 @@ else:
        
 st.title(option+icon)    
 
-def translate_text(text, target_lang_code):
-    translator = Translator()
-    translated_text = translator.translate(text, dest=target_lang_code)
-    return translated_text
-
-
 def generate(prompt,ip,lang):
     try:
         genai.configure(api_key=api_key)
@@ -74,11 +66,7 @@ def generate(prompt,ip,lang):
         target_lang_code=language_codes[lang] 
         if ip.strip()!='':
             response = model.generate_content(prompt)
-            if target_lang_code!='en':            
-                translated_text=translate_text(response.text,target_lang_code)
-                st.write(translated_text.text)
-            else:
-                st.success(response.text)
+            st.success(response.text)
                 # st.write()
         else:
             st.info("Don't forget to mention the topic! 😐")
@@ -111,7 +99,7 @@ if(option=="Story Generation" or option=="Essay Generation"):
         additional=st.text_input(f"Mention some description about the {req_type} (optional)")
             
         submitted = st.form_submit_button("Submit")
-        prompt = f"""Write a {req_type} on the topic - {ip} with a {optioneg1} tone and mention the title for {req_type}. Here are some additional points regarding this -  {additional}. Structure your {req_type} with a clear introduction, actions and characters that support your story lines, and a strong climax and mention the sections. Ensure your writing is clear, concise, and engaging. Pay attention to tone given above , grammar, spelling, and punctuation with suitable emojis. Give me {req_type} {option} long """
+        prompt = f"""Write a {req_type} on the topic - {ip} with a {optioneg1} tone in {lang} language and mention the title for {req_type}. Here are some additional points regarding this -  {additional}. Structure your {req_type} with a clear introduction, actions and characters that support your story lines, and a strong climax and mention the sections. Ensure your writing is clear, concise, and engaging. Pay attention to tone given above , grammar, spelling, and punctuation with suitable emojis. Give me {req_type} {option} long """
         # if not api_key:
         #     st.info('Enter your API key 👀')
         if submitted:
