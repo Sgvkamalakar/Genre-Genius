@@ -76,7 +76,7 @@ def generate(prompt,ip,lang):
             response = model.generate_content(prompt)
             if target_lang_code!='en':            
                 translated_text=translate_text(response.text,target_lang_code)
-                st.success(translated_text.text)
+                st.write(translated_text.text)
             else:
                 st.success(response.text)
                 # st.write()
@@ -97,8 +97,7 @@ def generate(prompt,ip,lang):
             
         elif "504 Deadline Exceeded" in error_msg:
             st.error("😵 We're experiencing high traffic at the moment🚦")
-            st.info("Please try again after some time. 🕰️")
-                
+            st.info("Please try again after some time. 🕰️")       
         else:
             st.error("💀 There was an issue processing your request 😪")
             st.error(f"The reason 👉🏻 {error_msg}☠️")
