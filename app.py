@@ -59,7 +59,7 @@ def generate(prompt,ip,lang):
         if ip.strip()!='':
             response = model.generate_content(prompt)
             st.success("Genre Genius nailed it 🎉")
-            st.success(f"Your {req_type} ready !😄✨")
+            st.success(f"Your {req_type} is ready !😄✨")
             st.write(response.text)
     
         else:
