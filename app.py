@@ -17,37 +17,34 @@ with st.sidebar:
     option = st.selectbox(
     'Choose the genre for text generation',
     ('Story Generation','Essay Generation'))
-    if(option=="Story Generation"):
+    if(req_type=="Story"):
         req_type='Story'
     else:
         req_type='Essay'
-    if(option=="Story Generation"):
-        optioneg1 = st.selectbox(
-        'Choose the preferred length for the Story',
-        ('small -  approx 150 words', 'medium -  approx 350 words', 'long -  approx 500 words','extensive -  more than 800 words'))
+    lengths=['Brief - around 150 words', 'Moderate - around 350 words', 'Substantial - around 500 words', 'Extensive - over 800 words']    
+    story_tone=['Adventurous','Comedy','Educative','Fictional','Mystery','Non-Fictional','Romantic']
+    essay_tone=['Argumentative','Expository','Descriptive','Informative','Narrative','Persuasive']
+    if(req_type=="Story"):
+        opt1 = st.selectbox(
+        'Choose the preferred length for the Story',lengths)
         
-    if(option=="Story Generation"):
-         optioneg2 = st.selectbox(
-        'Choose the tone of Story',
-        ('Adventurous','Comedy','Educative','Fictional','Mystery','Non-Fictional','Romantic'))
+    if(req_type=="Story"):
+         opt2 = st.selectbox(
+        'Choose the tone of Story',story_tone)
          
-    if(option=="Essay Generation"):
-        optioneg1 = st.selectbox(
-        'Choose the preferred length for the Essay',
-        ('small -  approx 150 words', 'medium -  approx 350 words', 'long -  approx 500 words','extensive -  more than 800 words'))
+    if(req_type=="Essay"):
+        opt1 = st.selectbox(
+        'Choose the preferred length for the Essay',lengths)
         
-    
-    if(option=="Essay Generation"):
-         optioneg2 = st.selectbox(
-        'Choose the tone of Essay',
-        ('Argumentative','Expository','Descriptive','Informative','Narrative','Persuasive'))
+    if(req_type=="Essay"):
+         opt2 = st.selectbox(
+        'Choose the tone of Essay',essay_tone)
          
     default_lang="English"
     languages = ["Arabic","Bengali","English","French","German","Hindi","Indonesian","Italian","Japanese","Korean","Mandarin Chinese","Portuguese","Russian","Spanish","Swahili"]
     lang= st.selectbox('Choose the language',languages, index=languages.index(default_lang) if default_lang in languages else 0)     
 
-    
-    st.markdown("[Linkedin](https://www.linkedin.com/in/sgvkamlakar/)")
+    st.markdown("[Connect with me on Linkedin](https://www.linkedin.com/in/sgvkamlakar/)")
     st.markdown("[Github](https://github.com/sgvkamalakar)")
 
 if 'Story' in option:
@@ -92,13 +89,13 @@ def generate(prompt,ip,lang):
 
 
  
-if(option=="Story Generation" or option=="Essay Generation"):
+if(req_type=="Story" or req_type=="Essay"):
     with st.form("myform"):
         ip=st.text_input(f"Mention topic of the {req_type} *")
         additional=st.text_input(f"Mention some description about the {req_type} (optional)")
             
         submitted = st.form_submit_button("Submit")
-        prompt = f"""Write a {req_type} on the topic - {ip} with a {optioneg1} tone in {lang} language and mention the title for {req_type}. Here are some additional points regarding this -  {additional}. Structure your {req_type} with a clear introduction, actions and characters that support your story lines, and a strong climax and mention the sections. Ensure your writing is clear, concise, and engaging. Pay attention to tone given above , grammar, spelling, and punctuation with suitable emojis. Give me {req_type} {option} long """
+        prompt = f"""Write a {req_type} on the topic - {ip} with a {opt1} tone in {lang} language and mention the title for {req_type}. Here are some additional points regarding this -  {additional}. Structure your {req_type} with a clear introduction, actions and characters that support your story lines, and a strong climax and mention the sections. Ensure your writing is clear, concise, and engaging. Pay attention to tone given above , grammar, spelling, and punctuation with suitable emojis. Give me {req_type} {option} long """
         # if not api_key:
         #     st.info('Enter your API key 👀')
         if submitted:
