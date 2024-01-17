@@ -67,7 +67,7 @@ def generate(prompt,ip,lang):
         if ip.strip()!='':
             response = model.generate_content(prompt)
             st.success(response.text)
-                # st.write()
+    
         else:
             st.info("Don't forget to mention the topic! 😐")
 
