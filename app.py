@@ -17,7 +17,7 @@ with st.sidebar:
     option = st.selectbox(
     'Choose the genre for text generation',
     ('Story Generation','Essay Generation'))
-    if(req_type=="Story"):
+    if(option=="Story Generation"):
         req_type='Story'
     else:
         req_type='Essay'
@@ -25,12 +25,10 @@ with st.sidebar:
     story_tone=['Adventurous','Comedy','Educative','Fictional','Mystery','Non-Fictional','Romantic']
     essay_tone=['Argumentative','Expository','Descriptive','Informative','Narrative','Persuasive']
     if(req_type=="Story"):
-        opt1 = st.selectbox(
-        'Choose the preferred length for the Story',lengths)
+        opt1 = st.selectbox('Choose the preferred length for the Story',lengths)
         
     if(req_type=="Story"):
-         opt2 = st.selectbox(
-        'Choose the tone of Story',story_tone)
+         opt2 = st.selectbox('Choose the tone of Story',story_tone)
          
     if(req_type=="Essay"):
         opt1 = st.selectbox(
