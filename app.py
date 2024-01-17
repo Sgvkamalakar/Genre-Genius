@@ -61,12 +61,11 @@ def generate(prompt,ip,lang):
     try:
         genai.configure(api_key=api_key)
         model = genai.GenerativeModel('gemini-pro')
-        language_codes = {"Arabic": "ar","Bengali": "bn","English": "en","French": "fr","German": "de","Hindi": "hi","Indonesian": "id","Japanese": "ja",
-        "Mandarin Chinese": "zh-CN","Portuguese": "pt","Russian": "ru","Spanish": "es","Swahili": "sw","Telugu": "te","Urdu": "ur"}
-        target_lang_code=language_codes[lang] 
         if ip.strip()!='':
             response = model.generate_content(prompt)
-            st.success(response.text)
+            st.sucess("Genre Genius nailed it 🎉")
+            st.sucess(f"Your {req_type} ready !😄✨")
+            st.write(response.text)
     
         else:
             st.info("Don't forget to mention the topic! 😐")
