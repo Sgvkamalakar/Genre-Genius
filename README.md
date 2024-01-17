@@ -1,4 +1,4 @@
-# Genre-Genius
+# Genre Genius
 <p align="center">
   <img src="https://github.com/Sgvkamalakar/Genre-Genius/assets/103712713/daba10cf-b617-427b-8d50-c3e745ab63eb" width="300" height="300"/>
 </p>
@@ -16,6 +16,18 @@ Genre-Genius aims to democratize creative writing by providing an accessible pla
 - _API Integration_: Seamlessly harness the power of the Google Generative AI API for creative content generation.
 
 Unleash your creativity with Genre-Genius and explore the boundless possibilities of genre-driven storytelling!
+
+## Demo
+- Story Generation
+  
+<p float="left">
+<img src="https://github.com/Sgvkamalakar/Genre-Genius/assets/103712713/ab3d51dc-e4cd-4400-b9b5-011c827a368b" width='400'/>
+<img src="https://github.com/Sgvkamalakar/Genre-Genius/assets/103712713/44503925-95a1-406b-9986-2d6d82d69bbb"  width='600'/>
+</p>
+- Essay Generation
+
+![image](https://github.com/Sgvkamalakar/Genre-Genius/assets/103712713/abd5cdf7-3cb6-4223-8cce-fd69dd9bbf0b)
+
 
 
 
