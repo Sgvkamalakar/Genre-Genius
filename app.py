@@ -1,5 +1,7 @@
 import streamlit as st
 import google.generativeai as genai
+import googletrans
+from googletrans import Translator
 from dotenv import load_dotenv
 import os
 load_dotenv()
