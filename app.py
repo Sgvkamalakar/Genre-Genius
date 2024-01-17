@@ -11,7 +11,7 @@ st.set_page_config(page_title='Genre Genius', page_icon = 'favicon.png', initial
 with st.sidebar:
     # Here we take Gemini API as a Input from user
     # api_key = st.text_input("API Key *", type="password")
-    st.markdown("[Get Your API Key](https://makersuite.google.com/app/apikey)")
+    # st.markdown("[Get Your API Key](https://makersuite.google.com/app/apikey)")
 
     # Select the type of Text Generation
     option = st.selectbox(
@@ -84,11 +84,11 @@ def generate(prompt,ip,lang):
             
     except Exception as e:
         error_msg=str(e)
-        if "API_KEY_INVALID" in error_msg:
-            st.error("Oops!🤨 It seems like the provided API Key is invalid")
-            st.info("Please enter a valid API Key. 😉")
+        # if "API_KEY_INVALID" in error_msg:
+        #     st.error("Oops!🤨 It seems like the provided API Key is invalid")
+        #     st.info("Please enter a valid API Key. 😉")
 
-        elif "response.parts" in error_msg:
+        if "response.parts" in error_msg:
             st.error("⚠️ There was an issue processing your request due to a quick accessor problem.🫠")
             st.error("This might 🤔 be related to the Gemini, not 🥴 returning any candidates.")
             st.error("🔍 Check the response.prompt_feedback to see if the prompt was blocked.😶‍🌫️")
