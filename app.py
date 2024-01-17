@@ -62,7 +62,7 @@ st.title(option+icon)
 def translate_text(text, target_lang_code):
     translator = Translator()
     translated_text = translator.translate(text, dest=target_lang_code)
-    return translated_text
+    return translated_text.text
 
 
 def generate(prompt,ip,lang):
@@ -76,10 +76,9 @@ def generate(prompt,ip,lang):
             response = model.generate_content(prompt)
             if target_lang_code!='en':            
                 translated_text=translate_text(response.text,target_lang_code)
-                st.success(translated_text.text)
+                st.write(translated_text)
             else:
                 st.success(response.text)
-                # st.write()
         else:
             st.info("Don't forget to mention the topic! 😐")
 
