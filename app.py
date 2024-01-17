@@ -43,7 +43,7 @@ with st.sidebar:
     lang= st.selectbox('Choose the language',languages, index=languages.index(default_lang) if default_lang in languages else 0)     
     
     st.markdown("[Connect with me on Linkedin](https://www.linkedin.com/in/sgvkamlakar/)")
-    st.makrdown("[Source code](https://github.com/Sgvkamalakar/Genre-Genius)")
+    st.markdown("[Source code](https://github.com/Sgvkamalakar/Genre-Genius)")
     st.markdown("[Github](https://github.com/sgvkamalakar)")
 
 if 'Story' in option:
