@@ -3,7 +3,7 @@ import google.generativeai as genai
 from dotenv import load_dotenv
 import os
 load_dotenv()
-# print(os.getenv("API_KEY"))
+
 API_KEY=os.getenv("API_KEY")
 # print(API_KEY)
 st.set_page_config(page_title='Genre Genius', page_icon = 'favicon.png', initial_sidebar_state = 'auto')
