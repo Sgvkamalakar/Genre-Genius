@@ -43,7 +43,7 @@ with st.sidebar:
         ('Argumentative','Expository','Descriptive','Informative','Narrative','Persuasive'))
          
     default_lang="English"
-    languages = ["Arabic","Bengali","English","French","German","Hindi","Indonesian","Japanese","Mandarin Chinese","Portuguese","Russian","Spanish","Swahili","Telugu","Urdu"]
+    languages = ["Arabic","Bengali","English","French","German","Hindi","Indonesian","Italian","Japanese","Korean","Mandarin Chinese","Portuguese","Russian","Spanish","Swahili"]
     lang= st.selectbox('Choose the language',languages, index=languages.index(default_lang) if default_lang in languages else 0)     
 
     
