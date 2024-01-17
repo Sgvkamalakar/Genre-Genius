@@ -1,4 +1,4 @@
-# Genre-Genius
+# Genre Genius
 <p align="center">
   <img src="https://github.com/Sgvkamalakar/Genre-Genius/assets/103712713/daba10cf-b617-427b-8d50-c3e745ab63eb" width="300" height="300"/>
 </p>
