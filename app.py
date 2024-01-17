@@ -1,12 +1,12 @@
 import streamlit as st
 import google.generativeai as genai
+from dotenv import load_dotenv
 import googletrans
 from googletrans import Translator
-from dotenv import load_dotenv
 import os
 load_dotenv()
 
-API_KEY=os.getenv("API_KEY")
+api_key=os.getenv("API_KEY")
 # print(API_KEY)
 st.set_page_config(page_title='Genre Genius', page_icon = 'favicon.png', initial_sidebar_state = 'auto')
 # Sidebar code
@@ -62,12 +62,12 @@ st.title(option+icon)
 def translate_text(text, target_lang_code):
     translator = Translator()
     translated_text = translator.translate(text, dest=target_lang_code)
-    return translated_text.text
+    return translated_text
 
 
 def generate(prompt,ip,lang):
     try:
-        genai.configure(api_key=API_KEY)
+        genai.configure(api_key=api_key)
         model = genai.GenerativeModel('gemini-pro')
         language_codes = {"Arabic": "ar","Bengali": "bn","English": "en","French": "fr","German": "de","Hindi": "hi","Indonesian": "id","Japanese": "ja",
         "Mandarin Chinese": "zh-CN","Portuguese": "pt","Russian": "ru","Spanish": "es","Swahili": "sw","Telugu": "te","Urdu": "ur"}
@@ -76,20 +76,21 @@ def generate(prompt,ip,lang):
             response = model.generate_content(prompt)
             if target_lang_code!='en':            
                 translated_text=translate_text(response.text,target_lang_code)
-                st.write(translated_text)
+                st.success(translated_text.text)
             else:
                 st.success(response.text)
+                # st.write()
         else:
             st.info("Don't forget to mention the topic! 😐")
 
             
     except Exception as e:
         error_msg=str(e)
-        # if "API_KEY_INVALID" in error_msg:
-        #     st.error("Oops!🤨 It seems like the provided API Key is invalid")
-        #     st.info("Please enter a valid API Key. 😉")
+        if "API_KEY_INVALID" in error_msg:
+            st.error("Oops!🤨 It seems like the provided API Key is invalid")
+            st.info("Please enter a valid API Key. 😉")
 
-        if "response.parts" in error_msg:
+        elif "response.parts" in error_msg:
             st.error("⚠️ There was an issue processing your request due to a quick accessor problem.🫠")
             st.error("This might 🤔 be related to the Gemini, not 🥴 returning any candidates.")
             st.error("🔍 Check the response.prompt_feedback to see if the prompt was blocked.😶‍🌫️")
