@@ -89,8 +89,10 @@ if(req_type=="Story" or req_type=="Essay"):
         additional=st.text_input(f"Mention some description about the {req_type} (optional)")
             
         submitted = st.form_submit_button("Submit")
-        prompt = f"""Write a {req_type} on the topic - {ip} with a {opt1} tone in {lang} language and mention the title for {req_type}. Here are some additional points regarding this -  {additional}. Structure your {req_type} with a clear introduction, actions and characters that support your story lines, and a strong climax and mention the sections. Ensure your writing is clear, concise, and engaging. Pay attention to tone given above , grammar, spelling, and punctuation with suitable emojis. Give me {req_type} {option} long """
-
+        if req_type=="Essay":
+            prompt = f"""Write a {req_type} on the topic - {ip} with a {opt1} tone in {lang} language and mention the title for {req_type}. Here are some additional points regarding this -  {additional}. Structure your {req_type} with a clear introduction, actions and characters that support your story lines, and a strong climax and mention the sections. Ensure your writing is clear, concise, and engaging. Pay attention to tone given above , grammar, spelling, and punctuation with suitable emojis. Give me {req_type} {option} long """
+        else:
+            prompt = f"""Write a {req_type} on the topic - {ip} with a {opt1} tone in {lang} language and mention the title for {req_type}. Here are some additional points regarding this -  {additional} with as many as twists in the story. Structure your {req_type} with a clear introduction, actions and characters that support your story lines, and a strong climax and mention the sections. Ensure your writing is clear, concise, and engaging. Pay attention to tone given above , grammar, spelling, and punctuation with suitable emojis. Give me {req_type} {option} long """
         if submitted:
             response=generate(prompt,ip,lang)
 
